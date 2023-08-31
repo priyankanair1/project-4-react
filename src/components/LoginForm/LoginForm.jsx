@@ -28,17 +28,33 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
-        </form>
+<div>
+      <div className="row">
+        <div className="col-lg-4"></div>
+        <div className="col-lg-4">
+          <div className="card border-0 rounded-0 p-lg-4 bg-light">
+            <form autoComplete="off" onSubmit={handleSubmit}>
+                <div className="card-body">
+                  <p className="error-message">{error}</p>
+                  <ul className="list-unstyled mb-0">
+                    <li>
+                    <label className="form-label text-xsm text-uppercase">Email &nbsp;&nbsp;</label>
+                    <input className="form-control form-control-sm" type="text" name="email" value={credentials.email} onChange={handleChange} required placeholder="Enter your email"/>
+                    </li>                    
+                    <li>
+                    <label className="form-label text-xsm text-uppercase">Password</label>
+                    <input className="form-control form-control-sm" type="password" name="password" value={credentials.password} onChange={handleChange} required placeholder="Enter your password"/>
+                    </li>
+                    <li className="border-bottom my-3"></li>
+                    <li className="align-items-center">
+                    <button className="btn btn-dark" type="submit" align="right">Login</button>
+                    </li>
+                  </ul>
+                </div>
+            </form>
+          </div>          
+        </div>
       </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+  </div>
   );
 }

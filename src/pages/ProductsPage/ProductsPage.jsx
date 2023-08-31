@@ -1,30 +1,30 @@
 import { useState, useEffect, useRef } from 'react';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import ProductList from '../../components/ProductList/ProductList';
-import * as itemsAPI from '../../utilities/items-api';
+import * as productsAPI from '../../utilities/products-api';
 import * as ordersAPI from '../../utilities/orders-api';
 
 export default function NewOrderPage() {
-  const [menuItems, setMenuItems] = useState([]);
+  const [products, setProducts] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const categoriesRef = useRef([]);
 
   // The empty dependency array causes the effect
   // to run ONLY after the FIRST render
   useEffect(function() {
-    async function getItems() {
-      const items = await itemsAPI.getAll();
-      categoriesRef.current = [...new Set(items.map(item => item.category.name))];
-      setMenuItems(items);
+    async function getProducts() {
+      const products = await productsAPI.getAll();
+      categoriesRef.current = [...new Set(products.map(product => product.category.name))];
+      setProducts(products);
       setActiveCat(categoriesRef.current[0]);
     }
-    getItems();  
+    getProducts();  
   }, []);
 
   /*--- Event Handlers ---*/
-  async function handleAddToOrder(itemId) {
+  async function handleAddToOrder(productId) {
     // 1. Call the addItemToCart function in ordersAPI, passing to it the itemId, and assign the resolved promise to a variable named cart.
-    await ordersAPI.addItemToCart(itemId);
+    await ordersAPI.addItemToCart(productId);
   }
 
   return (
@@ -48,7 +48,7 @@ export default function NewOrderPage() {
         
         <div className="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
         <ProductList
-          menuItems={menuItems.filter(item => item.category.name === activeCat)}
+          products={products.filter(product => product.category.name === activeCat)}
           handleAddToOrder={handleAddToOrder}
         />
         </div>

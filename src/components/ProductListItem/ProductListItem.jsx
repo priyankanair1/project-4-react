@@ -1,4 +1,4 @@
-export default function ProductListItem({ menuItem, handleAddToOrder }) {
+export default function ProductListItem({ product, handleAddToOrder }) {
   return (
     <div class="col-lg-4 col-sm-6 bg-light">
         <div className="product text-center">
@@ -10,13 +10,13 @@ export default function ProductListItem({ menuItem, handleAddToOrder }) {
               <ul className="mb-0 list-inline">
                 <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-outline-dark" href="#!">
                   <i className="far fa-heart"></i></a></li>
-                <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-dark" onClick={() => handleAddToOrder(menuItem._id)}>Add to cart</a></li>
+                <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-dark" onClick={() => handleAddToOrder(product._id)}>Add to cart</a></li>
                 <li className="list-inline-item mr-0"><a className="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i className="fas fa-expand"></i></a></li>
               </ul>
             </div>
           </div>
-          <h6> <a className="reset-anchor" href="detail.html">{menuItem.name}</a></h6>
-          <p className="small text-muted">${menuItem.price.toFixed(2)}</p>
+          <h6> <a className="reset-anchor" href="detail.html">{product.name}</a></h6>
+          <p className="small text-muted">${product.price.toFixed(2)}</p>
         </div>
     </div> 
   );

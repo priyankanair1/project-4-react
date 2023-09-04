@@ -5,7 +5,7 @@ export default function ProductListItem({ product, handleAddToOrder }) {
           <div className="mb-3 position-relative">
             <div className="badge text-white bg-"></div>
             <a className="d-block" href="detail.html">
-              <img className="img-fluid w-100" src="https://media.istockphoto.com/id/1352758440/photo/paper-shopping-food-bag-with-grocery-and-vegetables.jpg?s=1024x1024&w=is&k=20&c=19xRVomvxE2TiMKXiU4t447BgeEQ5LiSZK7ebeArLKk=" alt="..."/></a>
+              <img className="img-fluid w-100" src={product.image} alt="..."/></a>
             <div className="product-overlay">
               <ul className="mb-0 list-inline">
                 <li className="list-inline-item m-0 p-0"><a className="btn btn-sm btn-outline-dark" href="#!">

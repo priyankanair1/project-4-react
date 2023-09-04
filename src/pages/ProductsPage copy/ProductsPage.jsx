@@ -3,10 +3,10 @@ import CategoryList from '../../components/CategoryList/CategoryList';
 import ProductList from '../../components/ProductList/ProductList';
 import * as productsAPI from '../../utilities/products-api';
 import * as ordersAPI from '../../utilities/orders-api';
-import LineItemList from '../../components/LineItemList/LineItemList';
+import OrderDetail from '../../components/OrderItemsList/OrderDetail';
 import { useNavigate } from 'react-router-dom';
 
-export default function ProductsPage() {
+export default function NewOrderPage() {
   const [products, setProducts] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const categoriesRef = useRef([]);
@@ -59,22 +59,24 @@ export default function ProductsPage() {
       </section>
       <br/><br/>
       <div className="row">              
-        <div className="col-lg-2 order-2 order-lg-1 mb-3">          
+        <div className="col-lg-3 order-2 order-lg-1 mb-3">          
         <CategoryList
           categories={categoriesRef.current}
           activeCat={activeCat}
           setActiveCat={setActiveCat}
         />               
         </div>
-        <div className="col-lg-8 order-1 order-lg-2 mb-5 mb-lg-0">
+        <div className="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
         <ProductList
           products={products.filter(product => product.category.name === activeCat)}
           handleAddToOrder={handleAddToOrder}
         />
         </div>
-        <div className="col-lg-2 order-1 order-lg-2 mb-5 mb-lg-0">
-          <LineItemList
+        <div className="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+          <OrderDetail
             order={cart}
+            handleChangeQty={handleChangeQty}
+            handleCheckout={handleCheckout}
           />
         </div>
       </div>

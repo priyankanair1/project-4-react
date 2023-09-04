@@ -63,7 +63,7 @@ orderSchema.methods.addItemToCart = async function (itemId) {
   } else {
     // Get the item from the "catalog"
     // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
-    const Item = mongoose.model('Item');
+    const Item = mongoose.model('Product');
     const item = await Item.findById(itemId);
     // The qty of the new lineItem object being pushed in defaults to 1
     cart.lineItems.push({ item });
@@ -80,7 +80,8 @@ orderSchema.methods.setItemQty = function(itemId, newQty) {
   const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
   if (lineItem && newQty <= 0) {
     // Calling deleteOne, removes the lineItem subdoc from the cart.lineItems array
-    lineItem.deleteOne();
+    //lineItem.deleteOne();
+    lineItem.remove();
   } else if (lineItem) {
     // Set the new qty - positive value is assured thanks to prev if
     lineItem.qty = newQty;

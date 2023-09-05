@@ -12,8 +12,12 @@ export default function NavBar({ user, setUser }) {
       <header className="header bg-light">
         <div className="container px-lg-3">
           <nav className="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
-            <a className="navbar-brand" href="/"> 
-              <img src="https://bigbasketuae.com/images/logo.jpg" width="80" height="69"/>
+            <a className="navbar-brand" href="/">
+              <img
+                src="https://bigbasketuae.com/images/logo.jpg"
+                width="80"
+                height="69"
+              />
               <span className="fw-bold text-uppercase text-dark">
                 Big Basket
               </span>
@@ -54,29 +58,39 @@ export default function NavBar({ user, setUser }) {
               <ul className="navbar-nav ms-auto">
                 {user ? (
                   <>
+                    <li>
+                      <Link className="text_user">Welcome {user.name}</Link>
+                    </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/cart">
                         My Cart
                       </Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/logout">
+                      <Link className="nav-link" to="/" onClick={handleLogOut}>
                         Log Out
                       </Link>
                     </li>
-                    <li>
-                      <Link className="text_user">{user.name}</Link>
-                    </li>
                   </>
                 ) : (
-                  <></>
+                  <>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/login">
+                        Log In
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/signup">
+                        Sign Up
+                      </Link>
+                    </li>
+                  </>
                 )}
               </ul>
             </div>
           </nav>
         </div>
-        <div className="container px-lg-3 bg-white">&nbsp;
-        </div>
+        <div className="container px-lg-3 bg-white">&nbsp;</div>
       </header>
     </nav>
   );

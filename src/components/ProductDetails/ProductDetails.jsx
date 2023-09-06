@@ -161,9 +161,7 @@ export default function ProductDetails({ product, handleAddToOrder, handleChange
             <br />
             <h6 className="text-uppercase">Product description </h6>
             <p className="text-muted text-sm mb-0">
-            Beetroots are a good source of nutrients, fiber, and many plant compounds. The health benefits of this vegetable include improved heart health, the ability to reduce blood pressure, and enhanced exercise capacity.
-
-
+            {product.description}
             </p>
           </div>
         </div>

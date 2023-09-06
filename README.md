@@ -35,7 +35,7 @@ Technologies Used:-
 7-HEROKU-For Deployment
 
 GETTING STARTED:-
-https://
+https://bigbasket-project4-941db2c0dfcc.herokuapp.com/
 
 NEXT STEP:- Future Enhancements
 1-Add admin portal

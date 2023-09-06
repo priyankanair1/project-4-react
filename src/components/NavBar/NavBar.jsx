@@ -38,28 +38,31 @@ export default function NavBar({ user, setUser }) {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto">
-                {user ? (
-                  <>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li className="nav-item">
-                      <Link className="nav-link" to="/orders">
-                        Orders
-                      </Link>
-                    </li>
-                  </>
-                ) : (
-                  <></>
-                )}
+              {!user ? (
+              <li className="nav-item">
+              <Link className="nav-link" to="/">
+                    HOME
+                  </Link>                  
+                </li>
+              ):(
+                <p></p>
+              )}
+                <li className="nav-item">
+                  <Link className="nav-link" to="/products">
+                    SHOP
+                  </Link>
+                </li>
               </ul>
               <ul className="navbar-nav ms-auto">
                 {user ? (
                   <>
                     <li>
                       <Link className="text_user">Welcome {user.name}</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/orders">
+                        My Orders
+                      </Link>
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/cart">

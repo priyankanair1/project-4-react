@@ -36,16 +36,7 @@ export default function ProductsPage({ user }) {
     // 1. Call the addItemToCart function in ordersAPI, passing to it the itemId, and assign the resolved promise to a variable named cart.
     console.log();
     await ordersAPI.addItemToCart(productId);
-  }
-
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-    setCart(updatedCart);
-  }
-
-  async function handleCheckout() {
-    await ordersAPI.checkout();
-    navigate('/orders');
+    navigate("/cart");
   }
 
   async function handleLogin() {
@@ -57,7 +48,7 @@ export default function ProductsPage({ user }) {
       <section className="py-5 bg-light">
         <div className="row px-4 px-lg-5 py-lg-4 align-items-center">
           <div className="col-lg-6">
-            <h1 className="h2 text-uppercase mb-0">Products</h1>            
+            <h1 className="h2 text-uppercase mb-0">SHOP</h1>            
           </div>
         </div>
       </section>

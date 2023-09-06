@@ -87,7 +87,7 @@ export default function OrderDetail({
                   href="#"
                   onClick={handleCheckout}
                 >
-                  Procceed to checkout &nbsp;&nbsp;&nbsp;
+                  Proceed to checkout &nbsp;&nbsp;&nbsp;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

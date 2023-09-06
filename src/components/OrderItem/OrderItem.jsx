@@ -14,7 +14,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
       <td class="p-3 align-middle border-light">
         <p class="mb-0 small">{lineItem.item.price.toFixed(2)}</p>
       </td>
-      <td class="p-3 align-middle border-light">{lineItem.qty}</td>
+      <td class="p-3 align-middle border-light">{lineItem.qty} {lineItem.item.unit}</td>
       <td class="p-3 align-middle border-light">
         <p class="mb-0 small">{lineItem.extPrice.toFixed(2)}</p>
       </td>

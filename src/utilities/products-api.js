@@ -11,4 +11,3 @@ export async function getAll() {
 export async function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
-

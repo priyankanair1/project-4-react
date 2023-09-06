@@ -1,5 +1,4 @@
 const Product = require('../../models/product');
-
 module.exports = {
   index,
   show
@@ -13,6 +12,6 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  const product = await Product.findById(req.params.id);
+  const product = await Product.findById(req.params.id).populate('category');
   res.json(product);
 }

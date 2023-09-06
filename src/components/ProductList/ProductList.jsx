@@ -11,8 +11,6 @@ export default function ProductList({ products, handleAddToOrder, handleLogin, u
   ));
 
   return (
-    <div className="order-1 order-lg-2 mb-5 mb-lg-0">
       <div className="row">{items}</div>
-    </div>
   );
 }

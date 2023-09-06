@@ -10,7 +10,8 @@ export default function CartItem({ cartItem, isPaid, handleChangeQty }) {
             <strong class="h6">
               <a class="reset-anchor animsition-link" href="detail.html">
                 {cartItem.item.name}
-              </a>
+
+              </a>              
             </strong>
           </div>
         </div>
@@ -21,7 +22,7 @@ export default function CartItem({ cartItem, isPaid, handleChangeQty }) {
       <td class="p-3 align-middle border-light">
         <div class="border d-flex align-items-center justify-content-between px-3">
           <span class="small text-uppercase text-gray headings-font-family">
-            Quantity
+          {cartItem.item.unit}
           </span>
           <div class="quantity">
             <button
@@ -53,7 +54,7 @@ export default function CartItem({ cartItem, isPaid, handleChangeQty }) {
       </td>
       <td class="p-3 align-middle border-light">
         <a class="reset-anchor" href="#!" onClick={() =>
-                handleChangeQty(cartItem.item._id, cartItem.qty - 1)
+                handleChangeQty(cartItem.item._id, 0)
               }>
           <svg
             xmlns="http://www.w3.org/2000/svg"
